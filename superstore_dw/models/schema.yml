@@ -5,18 +5,40 @@ sources:
     database: group5
     schema: norm
     tables:
+     - name: t_city
+     - name: t_country
+     - name: t_customer
      - name: t_employee
+     - name: t_order
+     - name: t_order_line
      - name: t_region
+     - name: t_return
+     - name: t_segment
+     - name: t_ship_mode
+     - name: t_shipment
+     - name: t_state
+
+
 
 models:
-  - name: stg_employee
+  - name: dim_customer
     columns:
-      - name: employee_id
-        description: "A unique identifier for the employee"
+      - name: sk_customer
+        description: "A unique identifier for the customer"
         tests:
           - unique
           - not_null
-      - name: employee_name
-        description: "The name of the employee"
-      - name: region
-        description: "The region this employee is responsible for"
+      - name: customer_id
+        description: "The id of the customer"
+      - name: customer_name
+        description: "The name of the customer"
+      - name: segment
+        description: "The segment of the customer"
+      - name: valid_from
+        description: "The date on which this customer data started to be valid"
+      - name: valid_to
+        description: "The date on which this customer data expired"
+      - name: created_at
+        description: "The date this data was created"
+      - name: last_updated_at
+        description: "The date this data was last updated"
