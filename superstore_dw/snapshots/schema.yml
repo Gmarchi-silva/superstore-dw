@@ -1,20 +1,21 @@
 version: 2
 
 snapshots:
-  - name: sp_employee
-    description: "A snapshot of the stg_employee model, to keep track of changes to that table"
+  - name: sp_dim_customer
+    description: "A snapshot of the dim_customer model, to keep track of changes to that table"
     columns:
-      - name: dbt_scd_id
+      - name: sk_customer
         description: "A surrogate key created by dbt. It is the primary key of this table"
         tests:
           - unique
           - not_null
-      - name: dbt_valid_from
-        description: "This record is valid from this timestamp until the timestamp in dbt_valid_to"
+      - name: valid_from
+        description: "This record is valid from this timestamp until the timestamp in valid_to"
         tests:
           - not_null
-      - name: dbt_valid_to
-        description: "This record is valid from the timestamp in dbt_valid_from until this timestamp. If this is NULL, it means this record is the currently valid version"
-      - name: dbt_updated_at
+      - name: valid_to
+        description: "This record is valid from the timestamp in valid_from until this timestamp. If this is NULL, it means this record is the currently valid version"
+      - name: created_at
+        description: "The timestamp of when this record was created"
+      - name: last_updated_at
         description: "The timestamp of when this record was last updated"
-
