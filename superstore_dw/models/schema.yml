@@ -17,6 +17,11 @@ sources:
      - name: t_ship_mode
      - name: t_shipment
      - name: t_state
+  - name: snapshots
+    database: group5
+    schema: snapshots
+    tables:
+     - name: sp_dim_customer
 
 
 
