@@ -45,3 +45,24 @@ snapshots:
         description: "The timestamp of when this record was created"
       - name: last_updated_at
         description: "The timestamp of when this record was last updated"
+
+  - name: sp_dim_employee
+    description: "A snapshot of the dim_customer model, to keep track of changes to that table"
+    columns:
+      - name: sk_employee
+        description: "A surrogate key created by dbt. It is the primary key of this table"
+        tests:
+          - unique
+          - not_null
+      - name: employee_id
+      - name: employee_name
+      - name: valid_from
+        description: "This record is valid from this timestamp until the timestamp in valid_to"
+        tests:
+          - not_null
+      - name: valid_to
+        description: "This record is valid from the timestamp in valid_from until this timestamp. If this is NULL, it means this record is the currently valid version"
+      - name: created_at
+        description: "The timestamp of when this record was created"
+      - name: last_updated_at
+        description: "The timestamp of when this record was last updated"
