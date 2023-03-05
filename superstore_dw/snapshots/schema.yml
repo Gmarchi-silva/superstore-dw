@@ -66,3 +66,34 @@ snapshots:
         description: "The timestamp of when this record was created"
       - name: last_updated_at
         description: "The timestamp of when this record was last updated"
+
+  - name: sp_dim_date
+    description: "A snapshot of the dim_date model, to keep track of changes to that table"
+    columns:
+      - name: sk_date
+        description: "A surrogate key created by dbt. It is the primary key of this table"
+        tests:
+          - unique
+          - not_null
+      - name: date
+        description: DATE
+      - name: day
+        description: INT
+      - name: month
+        description: INT
+      - name: year
+        description: INT
+      - name: month_name
+        description: VARCHAR
+      - name: month_name_short
+        description: VARCHAR
+      - name: week_number
+        description: INT
+      - name: day_of_week
+        description: INT
+      - name: day_of_week_name
+        description: VARCHAR
+      - name: quarter
+        description: INT
+      - name: is_weekend
+        description: BOOLEAN

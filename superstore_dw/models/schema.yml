@@ -26,6 +26,11 @@ sources:
      - name: sp_dim_employee
      - name: sp_dim_date
      - name: sp_fact_order
+  - name: public
+    database: group5
+    schema: public
+    tables:
+     - name: dim_date
 
 
 
@@ -91,3 +96,22 @@ models:
         description: "The date this data was created"
       - name: last_updated_at
         description: "The date this data was last updated"
+
+  - name: dim_date
+    columns:
+      - name: sk_date
+        description: "A unique identifier for the date"
+        tests:
+          - unique
+          - not_null
+      - name: date
+      - name: day
+      - name: month
+      - name: year
+      - name: month_name
+      - name: month_name_short
+      - name: week_number
+      - name: day_of_week
+      - name: day_of_week_name
+      - name: quarter
+      - name: is_weekend
