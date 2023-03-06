@@ -97,3 +97,28 @@ snapshots:
         description: INT
       - name: is_weekend
         description: BOOLEAN
+
+  - name: sp_fact_order
+    description: "A snapshot of the fact_order model, to keep track of changes to that table"
+    columns:
+      - name: order_id
+        tests:
+          - unique
+          - not_null
+      - name: sk_order_date
+      - name: sk_shipped_date
+      - name: sk_customer
+      - name: sk_geography
+      - name: sk_employee
+      - name: order_status
+      - name: ship_mode
+      - name: nr_of_order_lines
+      - name: quantity
+      - name: time_to_ship_days
+      - name: sales
+      - name: profit
+      - name: nr_of_returns
+      - name: created_at
+        description: "The date this data was created"
+      - name: last_updated_at
+        description: "The date this data was last updated"
